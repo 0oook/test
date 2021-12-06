@@ -8,9 +8,11 @@
 #include "../Shape/Shape.h"
 
 
-class Circle final : public Shape {
+namespace circle {
+
+class Circle final : public shape::Shape {
  public:
-  explicit Circle(const float &pr);
+  Circle(std::shared_ptr<ros::NodeHandle> &p_nh, const float &pr);
 
   ~Circle() final;
 
@@ -23,6 +25,8 @@ class Circle final : public Shape {
   float pi    = 3.14;
   char  *buff = nullptr;
 };
+
+}
 
 
 #endif //TEST_CIRCLE_H

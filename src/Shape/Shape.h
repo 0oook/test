@@ -6,11 +6,15 @@
 #define TEST_SRC_SHAPE_H_
 
 #include <bits/stdc++.h>
+#include <ros/ros.h>
+#include "test/GetArea.h"
 
+
+namespace shape {
 
 class Shape {
  public:
-  Shape();
+  explicit Shape(std::shared_ptr<ros::NodeHandle> &p_nh);
 
   virtual ~Shape();
 
@@ -18,14 +22,17 @@ class Shape {
 
   virtual float calculatePerimeter() = 0;
 
-  float getArea();
+  bool getArea();
 
-  float getPerimeter();
+  bool getPerimeter();
 
  protected:
-  float *area;
-  float *perimeter;
+  float                            *area;
+  float                            *perimeter;
+  std::shared_ptr<ros::NodeHandle> nh_;
+  std::vector<ros::Subscriber>     v_sub_;
 };
 
+}
 
 #endif //TEST_SRC_SHAPE_H_

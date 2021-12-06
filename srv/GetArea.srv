@@ -1,0 +1,12 @@
+string name
+
+---
+
+int32 result
+string description
+
+int32 SUCCESS = 301
+int32 FAILED = -301
+int32 MAPPING_NOT_START = -302
+int32 PATH_UNVALID = -303
+int32 NO_DATA = -304

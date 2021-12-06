@@ -7,10 +7,11 @@
 
 #include "../Shape/Shape.h"
 
+namespace rectangle {
 
-class Rectangle final : public Shape {
+class Rectangle final : public shape::Shape {
  public:
-  Rectangle(const float &pw, const float &ph);
+  Rectangle(std::shared_ptr<ros::NodeHandle> &p_nh, const float &pw, const float &ph);
 
   ~Rectangle() final;
 
@@ -23,5 +24,6 @@ class Rectangle final : public Shape {
   float *h;
 };
 
+}
 
 #endif //TEST_RECTANGLE_H
