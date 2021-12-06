@@ -10,27 +10,13 @@
 
 class Rectangle final : public Shape {
  public:
-  Rectangle(const float &pw, const float &ph) : w(new float(pw)), h(new float(ph)) {
-  }
+  Rectangle(const float &pw, const float &ph);
 
-  ~Rectangle() final {
-    if (w) {
-      delete w;
-      w = nullptr;
-    }
-    if (h) {
-      delete h;
-      h = nullptr;
-    }
-  }
+  ~Rectangle() final;
 
-  float calculateArea() final {
-    *area = (*w) * (*h);
-  }
+  float calculateArea() final;
 
-  float calculatePerimeter() final {
-    *perimeter = 2 * ((*w) + (*h));
-  }
+  float calculatePerimeter() final;
 
  private:
   float *w;

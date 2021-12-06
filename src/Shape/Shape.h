@@ -10,36 +10,17 @@
 
 class Shape {
  public:
-  Shape() {
-    area      = new float;
-    perimeter = new float;
-  }
+  Shape();
 
-  virtual ~Shape() {
-    if (area) {
-      delete area;
-      area = nullptr;
-    }
-
-    if (perimeter) {
-      delete perimeter;
-      perimeter = nullptr;
-    }
-  }
+  virtual ~Shape();
 
   virtual float calculateArea() = 0;
 
   virtual float calculatePerimeter() = 0;
 
-  float getArea() {
-    printf("Area: %f\n", *area);
-    return *area;
-  }
+  float getArea();
 
-  float getPerimeter() {
-    printf("Perimeter: %f\n", *perimeter);
-    return *perimeter;
-  }
+  float getPerimeter();
 
  protected:
   float *area;

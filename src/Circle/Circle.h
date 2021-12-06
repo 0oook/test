@@ -10,32 +10,18 @@
 
 class Circle final : public Shape {
  public:
-  explicit Circle(const float &pr) : r(new float(pr)), buff(new char [1024 * 1024 * 1024]) {
-    printf("This is a Circle r: %f\n", pr);
-    memset(buff, 'X', 1024 * 1024 * 1024);
-  }
-  ~Circle() final {
-    if (r) {
-      delete r;
-      r = nullptr;
-    }
+  explicit Circle(const float &pr);
 
-    // if (buff) {
-    //   delete[] buff;
-    //   buff = nullptr;
-    // }
-  }
+  ~Circle() final;
 
-  float calculateArea() final {
-    *area = pi * (*r) * (*r);
-  }
-  float calculatePerimeter() final {
-    *perimeter = 2 * pi * (*r);
-  }
+  float calculateArea() final;
+
+  float calculatePerimeter() final;
+
  private:
   float *r;
-  float pi = 3.14;
-  char *buff = nullptr;
+  float pi    = 3.14;
+  char  *buff = nullptr;
 };
 
 
