@@ -96,7 +96,8 @@ void foo() {
 int main() {
   cout << "Hello world!" << endl;
 
-  auto *c1 = new Circle(100);
+  std::shared_ptr<ros::NodeHandle> p_nh = std::make_shared<ros::NodeHandle>();
+  auto *c1 = new circle::Circle(p_nh, 100);
   c1->calculateArea();
   c1->calculatePerimeter();
 
@@ -105,7 +106,7 @@ int main() {
 
   delete c1;
 
-  auto *c2 = new Circle(10);
+  auto *c2 = new circle::Circle(p_nh, 10);
   c2->calculateArea();
   c2->calculatePerimeter();
 
@@ -114,7 +115,7 @@ int main() {
 
   delete c2;
 
-  auto *r1 = new Rectangle(10, 20);
+  auto *r1 = new rectangle::Rectangle(p_nh, 10, 20);
   r1->calculateArea();
   r1->calculatePerimeter();
 

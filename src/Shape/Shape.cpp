@@ -9,6 +9,7 @@ namespace shape {
 Shape::Shape(std::shared_ptr<ros::NodeHandle> &p_nh) : nh_(p_nh) {
   area      = new float;
   perimeter = new float;
+  area_pub_ = nh_->advertise<test::Area>("/area", 1, true);
 }
 
 Shape::~Shape() {

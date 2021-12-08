@@ -47,11 +47,12 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
+add_message_files(
+  FILES
+  Area.msg
 #   Message1.msg
 #   Message2.msg
-# )
+)
 
 ## Generate services in the 'srv' folder
 add_service_files(
@@ -134,7 +135,21 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/test_node.cpp src/Shape/Shape.cpp src/Shape/Shape.h src/Circle/Circle.cpp src/Circle/Circle.h src/Rectangle/Rectangle.cpp src/Rectangle/Rectangle.h)
+add_executable(${PROJECT_NAME}_node
+  src/test_node.cpp
+
+  # Shape
+  src/Shape/Shape.h
+  src/Shape/Shape.cpp
+
+  # Circle
+  src/Circle/Circle.h
+  src/Circle/Circle.cpp
+
+  # Rectangle
+  src/Rectangle/Rectangle.h
+  src/Rectangle/Rectangle.cpp
+)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -147,9 +162,9 @@ add_executable(${PROJECT_NAME}_node src/test_node.cpp src/Shape/Shape.cpp src/Sh
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(${PROJECT_NAME}_node
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##

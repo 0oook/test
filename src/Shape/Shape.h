@@ -8,6 +8,7 @@
 #include <bits/stdc++.h>
 #include <ros/ros.h>
 #include "test/GetArea.h"
+#include "test/Area.h"
 
 
 namespace shape {
@@ -31,6 +32,7 @@ class Shape {
   float                            *perimeter;
   std::shared_ptr<ros::NodeHandle> nh_;
   std::vector<ros::Subscriber>     v_sub_;
+  ros::Publisher                   area_pub_;
 };
 
 }
